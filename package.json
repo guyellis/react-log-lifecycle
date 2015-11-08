@@ -1,6 +1,6 @@
 {
   "name": "react-log-lifecycle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Logs Lifecycle methods of a React component to assist learning and debugging",
   "main": "lib/main.js",
   "engines": {
@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": ". scripts/build.sh",
+    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx .",
     "prepublish": "npm run build"
   },
   "repository": {

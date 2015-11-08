@@ -2,6 +2,8 @@
 
 Console.log Lifecycle events in a React Component
 
+Questions? Ask me  [@wildfiction](https://twitter.com/wildfiction). Or create an issue.
+
 ## Install
 
 ```shell
@@ -22,9 +24,20 @@ In your React component:
 import React from 'react';
 import LogLifecyle from 'react-log-lifecycle';
 
+// Optional flags:
+const flags = {
+  // If logType is set to keys then the props of the object being logged
+  // will be written out instead of the whole object. Remove logType or 
+  // set it to anything except keys to have the full object logged.
+  logType: 'keys',
+  // A list of the param "types" to be logged.
+  // The example below has all the types.
+  names: ['props', 'nextProps', 'nextState', 'prevProps', 'prevState']
+};
+
 export default class MyReactComponent extends LogLifecyle {
   constructor(props) {
-    super(props);
+    super(props, flags);
   }
   render() {
 
@@ -39,6 +52,8 @@ export default class MyReactComponent extends LogLifecyle {
 
 ## Output in Console window
 
+This output is without the optional flags object enabled above. With the flags enabled this will also output the objects or objects' keys.
+
 ```
 #1.1 constructor(props)
   - Start of cycle #1
@@ -51,6 +66,7 @@ export default class MyReactComponent extends LogLifecyle {
   - Just before render()
 
 MyReactComponent render
+
 #1.3 componentDidMount()
   - Invoked Once (client only)
   - refs to children now available
@@ -85,7 +101,3 @@ MyReactComponent render
   - invoked immediately before a component is unmounted from DOM
   - do cleanup here. e.g. kill timers and unlisten to events such as flux store updates
 ```
-
-## Improvements
-
-I'm thinking that adding flags to `console.log` the props and/or state or the keys on either of those might be helpful. Feel free to work with me on the issues or ping me on [Twitter](https://twitter.com/wildfiction) to discuss this.

@@ -2,14 +2,41 @@ import React from 'react';
 
 export default class LogLifecyle extends React.Component {
 
-  constructor(props) {
+  log(obj) {
+    // obj should have a single property.
+    // The name (key) of that property should be switched on in the flags
+    // object if it should be logged. You swith it on by adding it to the
+    // flags.names array.
+    // The value of the single prop in obj is the object that is to be
+    // logged. (Or the keys of the object to be logged.)
+    const keys = Object.keys(obj);
+    if(keys.length !== 1) {
+      return;
+    }
+    const key = keys[0];
+
+    if(this.flags.names && this.flags.names.indexOf(key) >= 0) {
+      // The flags object can override logging the object by changing
+      // the logType to 'keys' to just log out the keys of the object.
+      const logObj = (this.flags.logType && this.flags.logType === 'keys' && obj[key])
+        ? Object.keys(obj[key])
+        : obj[key];
+
+      console.log(key + ':', logObj);
+    }
+  }
+
+  constructor(props, flags) {
     super(props);
     this.cycleNum = 1;
+    this.flags = flags || {};
     console.log(`#${this.cycleNum}.1 constructor(props)
   - Start of cycle #${this.cycleNum}
   - replaces getInitialState()
   - assign to this.state to set initial state.
 `);
+
+    this.log({props});
   }
 
   componentWillMount() {
@@ -40,6 +67,7 @@ export default class LogLifecyle extends React.Component {
   - parameter to this function is nextProps
   - can call this.setState() here (will not trigger addition render)
 `);
+    this.log({nextProps});
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -49,6 +77,8 @@ export default class LogLifecyle extends React.Component {
   - returning false from here prevents component update and the next 2 parts of the Lifecycle: componentWillUpdate() componentDidUpdate()
   - returns true by default;
 `);
+    this.log({nextProps});
+    this.log({nextState});
     return true;
   }
 
@@ -57,12 +87,16 @@ export default class LogLifecyle extends React.Component {
   - cannot use this.setState() (do that in componentWillReceiveProps() above)
   - Just before render()
 `);
+    this.log({nextProps});
+    this.log({nextState});
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log(`#${this.cycleNum}.4 componentDidUpdate(prevProps, prevState)
   - Just after render()
 `);
+    this.log({prevProps});
+    this.log({prevState});
   }
 
   componentWillUnmount() {
