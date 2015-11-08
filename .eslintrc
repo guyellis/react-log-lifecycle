@@ -1,0 +1,16 @@
+{
+  "extends": [
+      "guyellis",
+      "guyellis/es6",
+      "guyellis/react"
+    ],
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "modules": true,
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+  },
+}
