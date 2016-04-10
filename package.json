@@ -1,43 +1,43 @@
 {
-  "name": "react-log-lifecycle",
-  "version": "0.0.2",
+  "author": "Guy Ellis <wildfiction@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/guyellis/react-log-lifecycle/issues"
+  },
+  "dependencies": {
+    "react": "^15.0.1"
+  },
   "description": "Logs Lifecycle methods of a React component to assist learning and debugging",
-  "main": "lib/main.js",
+  "devDependencies": {
+    "babel": "^6.0.15",
+    "babel-cli": "^6.1.1",
+    "babel-eslint": "^6.0.2",
+    "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
+    "eslint": "^2.7.0",
+    "eslint-config-guyellis": "0.0.5",
+    "eslint-plugin-react": "^4.3.0"
+  },
   "engines": {
-    "node": "5.0.0"
+    "node": "^5.0.0"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ". scripts/build.sh",
-    "lint": "node_modules/.bin/eslint --ext .js --ext .jsx .",
-    "prepublish": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guyellis/react-log-lifecycle.git"
-  },
+  "homepage": "https://github.com/guyellis/react-log-lifecycle#readme",
   "keywords": [
     "react",
     "lifecycle",
     "log"
   ],
-  "author": "Guy Ellis <wildfiction@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/guyellis/react-log-lifecycle/issues"
+  "main": "lib/main.js",
+  "name": "react-log-lifecycle",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyellis/react-log-lifecycle.git"
   },
-  "homepage": "https://github.com/guyellis/react-log-lifecycle#readme",
-  "dependencies": {
-    "react": "^0.14.2"
+  "scripts": {
+    "build": ". scripts/build.sh",
+    "lint": "eslint --ext .js --ext .jsx .",
+    "prepublish": "npm run build",
+    "test": "npm run lint"
   },
-  "devDependencies": {
-    "babel": "^6.0.15",
-    "babel-cli": "^6.1.1",
-    "babel-eslint": "^4.1.4",
-    "babel-preset-es2015": "^6.1.2",
-    "babel-preset-react": "^6.1.2",
-    "eslint": "^1.9.0",
-    "eslint-config-guyellis": "0.0.1",
-    "eslint-plugin-react": "^3.8.0"
-  }
+  "version": "1.0.0"
 }
