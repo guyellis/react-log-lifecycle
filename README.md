@@ -1,5 +1,7 @@
 # react-log-lifecycle
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/guyellis/react-log-lifecycle.svg)](https://greenkeeper.io/)
+
 Console.log Lifecycle events in a React Component
 
 Questions? Ask me  [@wildfiction](https://twitter.com/wildfiction). Or create an issue.
